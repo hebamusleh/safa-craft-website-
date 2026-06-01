@@ -59,11 +59,47 @@ const navItems = [
         <span class="material-symbols-outlined">person</span>
       </button>
       <button
+        id="menu-btn"
         aria-label="Menu"
         class="md:hidden hover:opacity-80 transition-all p-2 rounded-full cursor-pointer"
       >
-        <span class="material-symbols-outlined">menu</span>
+        <span id="menu-icon" class="material-symbols-outlined">menu</span>
       </button>
     </div>
   </div>
+  <nav
+    id="mobile-menu"
+    class="md:hidden fixed inset-x-0 top-[72px] bottom-0 bg-surface/95 backdrop-blur-md translate-x-full transition-transform duration-300 z-40"
+  >
+    <div class="flex flex-col gap-2 p-margin-mobile pt-4 bg-white">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class={`
+            font-body-lg text-body-lg no-underline px-4 py-3 rounded-lg transition-colors duration-200
+            ${
+              currentPage === item.href
+                ? "text-primary font-bold bg-primary-container/20"
+                : "text-on-surface-variant hover:text-primary hover:bg-surface-container-high"
+            }
+          `}
+        >
+          {item.label}
+        </a>
+      ))}
+    </div>
+  </nav>
 </header>
+
+<script>
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const menuIcon = document.getElementById("menu-icon");
+
+  if (menuBtn && mobileMenu && menuIcon) {
+    menuBtn.addEventListener("click", () => {
+      const isOpen = mobileMenu.classList.toggle("translate-x-full");
+      menuIcon.textContent = isOpen ? "menu" : "close";
+    });
+  }
+</script>
