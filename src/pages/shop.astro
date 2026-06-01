@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout title="Shop All - Safa Craft">
+  <Header currentPage="/shop" />
+  <main class="flex-grow">
+    <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg md:py-24">
+      <div class="text-center max-w-2xl mx-auto">
+        <h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-stack-sm">
+          Shop All
+        </h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant">
+          Browse our complete collection of handcrafted pieces, from home decor to
+          everyday accessories.
+        </p>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
